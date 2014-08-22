@@ -29,8 +29,12 @@ public class StackVector<T> extends Stack<T> {
     @Override
     public T pop() {
        T dato;
-       dato= (T)vector.get(puntero);
-       puntero--;
-       return dato;
+       if(puntero>-1){
+            dato= (T)vector.get(puntero);
+            puntero--;
+            return dato;
+       }
+       else
+           return null;    
    }
 }
