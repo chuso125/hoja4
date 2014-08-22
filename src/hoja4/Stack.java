@@ -49,17 +49,19 @@ public abstract class Stack<T> implements iStack<T> {
     public String evaluar(Stack stack){
         String pop,prueba1,prueba2;
         int num1,num2,cont;
-        cont=0;
         do{
-            cont++;
            prueba1 = (String)stack.pop();
            prueba2 = (String)stack.pop();
            if(prueba2!=null){
                 stack.push(prueba2);
                 stack.push(prueba1);
+
                 num1 = Integer.parseInt((String) stack.pop());
+
                 num2 = Integer.parseInt((String)stack.pop());
+
                 pop = (String)stack.pop();
+
                 switch (pop){
                     case "+":{
                         num1 = num1+num2;

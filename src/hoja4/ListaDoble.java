@@ -58,7 +58,7 @@ public class ListaDoble<T> extends Lista<T>{
 
     @Override
     public T pop() {
-        NodoDoble<T> temp;
+        NodoDoble<T> temp=(NodoDoble<T>) Cabeza;
         if(!isEmpty){
             if(NodoActual == Cabeza){
                 temp = (NodoDoble<T>) NodoActual;
@@ -67,9 +67,9 @@ public class ListaDoble<T> extends Lista<T>{
                 return (T) temp.getValor();
             }
             else{
+                
                 temp = (NodoDoble<T>) NodoActual;
-                NodoActual = temp.getAnterior();
-                NodoActual.setSiguiente(null);
+                NodoActual =temp.getAnterior();
                 return (T) temp.getValor();
             }
         }

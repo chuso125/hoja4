@@ -74,6 +74,7 @@ public class Main {
                     }
                     
                 }
+                break;
             }
             case 3:{
                stack = sFactory.getClass("arrayList");

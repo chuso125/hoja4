@@ -64,6 +64,7 @@ public class ListaSimple<T> extends Lista<T>{
     public T pop() {
         NodoSimple<T> temp = new NodoSimple();
         temp = (NodoSimple<T>) Cabeza;
+        T temp2;
         if(!isEmpty){
             if(temp.getSiguiente()==null){
                 Cabeza = null;
@@ -74,8 +75,9 @@ public class ListaSimple<T> extends Lista<T>{
                 while(temp.getSiguiente().getSiguiente()!=null)
                     temp = (NodoSimple<T>) temp.getSiguiente();
                 NodoActual = temp;
+                temp2 = (T) (temp.getSiguiente().getValor());
                 NodoActual.setSiguiente(null);
-                return temp.getValor();
+                return temp2;
             }
         }
         else

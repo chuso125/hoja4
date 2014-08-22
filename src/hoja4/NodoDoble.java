@@ -37,7 +37,7 @@ public class NodoDoble<T> extends NodoSimple {
     }
     
     public void setAnterior(Nodo anterior) {
-        _siguiente = anterior;
+        _anterior = anterior;
     }
     
     public Nodo getAnterior() {

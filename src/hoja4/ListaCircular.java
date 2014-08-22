@@ -69,6 +69,7 @@ public class ListaCircular<T> extends Lista<T> {
     @Override
     public T pop() {
         NodoCircular<T> temp;
+        T temp2;
         if(isEmpty==false){
             if(NodoActual == Cabeza){
                 temp = (NodoCircular<T>) NodoActual;
@@ -78,10 +79,13 @@ public class ListaCircular<T> extends Lista<T> {
             }
             else{
                 temp = (NodoCircular<T>) NodoActual;
-                temp.getAnterior().setSiguiente(temp.getSiguiente());
-                temp.getSiguiente().setAnterior(temp.getAnterior());
+                temp2=(T)temp.getValor();
+                temp = (NodoCircular<T>) temp.getAnterior();
+                temp.setSiguiente(temp.getSiguiente());
+                temp =(NodoCircular<T>) temp.getSiguiente();
+                temp.setAnterior(temp.getAnterior());
                 NodoActual = temp.getAnterior();
-                return (T) temp.getValor();
+                return (T) temp2;
             }
         }
         else
