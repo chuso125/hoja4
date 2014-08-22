@@ -16,25 +16,27 @@ public class StackVector<T> extends Stack<T> {
     private Vector vector;
     private int puntero;
     public StackVector(){
-        puntero = 0;
-        vector = new Vector(getTamanoArreglo());
+        puntero = getTamanoArreglo()-1;
+        vector = new Vector();
+        vector.setSize(getTamanoArreglo());
     }
     @Override 
     public void push(T valor){
-            puntero++;
-            vector.set(puntero, valor);
-        
+           vector.addElement(valor); 
+           System.out.println("tamano "+vector.size());
     }
 
     @Override
     public T pop() {
-       T dato;
-       if(puntero>-1){
-            dato= (T)vector.get(puntero);
-            puntero--;
-            return dato;
-       }
-       else
-           return null;    
+        if (vector.size()>0){
+            T e;
+            e=(T) vector.get(vector.size()-1);
+            vector.removeElementAt(vector.size()-1);
+            //vector.setSize(vector.size()-1);
+            System.out.println("tamano "+vector.size());
+            return e;   
+        }
+        else
+            return null;
    }
 }

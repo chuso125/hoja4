@@ -69,7 +69,7 @@ public class ListaCircular<T> extends Lista<T> {
     @Override
     public T pop() {
         NodoCircular<T> temp;
-        if(!isEmpty){
+        if(isEmpty==false){
             if(NodoActual == Cabeza){
                 temp = (NodoCircular<T>) NodoActual;
                 Cabeza = null;

@@ -47,7 +47,7 @@ public class ListaDoble<T> extends Lista<T>{
         if (Cabeza == null){
             Cabeza = _newNodo;
             NodoActual = Cabeza;
-     
+            isEmpty=false;
         }
         else{
             NodoActual.setSiguiente(_newNodo);
@@ -58,19 +58,18 @@ public class ListaDoble<T> extends Lista<T>{
 
     @Override
     public T pop() {
-        NodoCircular<T> temp;
+        NodoDoble<T> temp;
         if(!isEmpty){
             if(NodoActual == Cabeza){
-                temp = (NodoCircular<T>) NodoActual;
+                temp = (NodoDoble<T>) NodoActual;
                 Cabeza = null;
                 isEmpty = true;
                 return (T) temp.getValor();
             }
             else{
-                temp = (NodoCircular<T>) NodoActual;
-                temp.getAnterior().setSiguiente(temp.getSiguiente());
-                temp.getSiguiente().setAnterior(temp.getAnterior());
+                temp = (NodoDoble<T>) NodoActual;
                 NodoActual = temp.getAnterior();
+                NodoActual.setSiguiente(null);
                 return (T) temp.getValor();
             }
         }

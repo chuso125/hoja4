@@ -26,7 +26,7 @@ public abstract class Stack<T> implements iStack<T> {
     
     public void insertar(String expresion,Stack stack){
         tamanoArreglo =expresion.length();
-        for(int i =tamanoArreglo;i>=0;i--){
+        for(int i =tamanoArreglo-1;i>=0;i--){
             switch(expresion.charAt(i)){
                 case '0': stack.push("0");break;
                 case '1': stack.push("1");break;
@@ -46,14 +46,54 @@ public abstract class Stack<T> implements iStack<T> {
         }
     }
     
-    public int evaluar(Stack stack){
-        String pop;
+    public String evaluar(Stack stack){
+        String pop,prueba1,prueba2;
+        int num1,num2,cont;
+        cont=0;
         do{
-           pop = (String) stack.pop();
-           switch(pop){
-               case "1","2":
+            cont++;
+           prueba1 = (String)stack.pop();
+           prueba2 = (String)stack.pop();
+           System.out.println("prueba1 "+prueba1);
+           System.out.println("prueba2 "+prueba2);
+           if(prueba2!=null){
+                stack.push(prueba2);
+                stack.push(prueba1);
+                System.out.println(cont);
+                num1 = Integer.parseInt((String) stack.pop());
+                System.out.println("num1 "+num1);
+                num2 = Integer.parseInt((String)stack.pop());
+                System.out.println("num2 "+num2);
+                pop = (String)stack.pop();
+                System.out.println("pop "+pop);
+                switch (pop){
+                    case "+":{
+                        num1 = num1+num2;
+                        System.out.println("resultado "+num1);
+                        stack.push(Integer.toString(num1));
+                        break;
+                    }
+                    case "-":{
+                        num1 = num1-num2;
+                        stack.push(Integer.toString(num1));
+                        break;
+                    }
+                    case "*":{
+                        num1 = num1*num2;
+                        stack.push(Integer.toString(num1));
+                        break;
+                    }
+                    case "/":{
+                        if(num2!=0){
+                             num1 = num1+num2;
+                             stack.push(Integer.toString(num1));
+                        }
+                        break;
+                    }
+                }
            }
-        }while(pop!=null);
+        }while(prueba2!=null);
+        return prueba1;
     }
     
 }

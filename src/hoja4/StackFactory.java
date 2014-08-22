@@ -15,6 +15,8 @@ public class StackFactory<T> {
         switch(tipo){
             case "vector":
                     return new StackVector<T>();
+            case "arrayList":
+                    return new StackArrayList<T>();
         }
         return null;
     }
