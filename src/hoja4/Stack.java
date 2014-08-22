@@ -54,22 +54,15 @@ public abstract class Stack<T> implements iStack<T> {
             cont++;
            prueba1 = (String)stack.pop();
            prueba2 = (String)stack.pop();
-           System.out.println("prueba1 "+prueba1);
-           System.out.println("prueba2 "+prueba2);
            if(prueba2!=null){
                 stack.push(prueba2);
                 stack.push(prueba1);
-                System.out.println(cont);
                 num1 = Integer.parseInt((String) stack.pop());
-                System.out.println("num1 "+num1);
                 num2 = Integer.parseInt((String)stack.pop());
-                System.out.println("num2 "+num2);
                 pop = (String)stack.pop();
-                System.out.println("pop "+pop);
                 switch (pop){
                     case "+":{
                         num1 = num1+num2;
-                        System.out.println("resultado "+num1);
                         stack.push(Integer.toString(num1));
                         break;
                     }

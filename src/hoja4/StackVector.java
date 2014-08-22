@@ -23,7 +23,6 @@ public class StackVector<T> extends Stack<T> {
     @Override 
     public void push(T valor){
            vector.addElement(valor); 
-           System.out.println("tamano "+vector.size());
     }
 
     @Override
@@ -32,8 +31,6 @@ public class StackVector<T> extends Stack<T> {
             T e;
             e=(T) vector.get(vector.size()-1);
             vector.removeElementAt(vector.size()-1);
-            //vector.setSize(vector.size()-1);
-            System.out.println("tamano "+vector.size());
             return e;   
         }
         else
