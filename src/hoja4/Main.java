@@ -19,11 +19,11 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int op1,op2,resultado;
+        int op1,op2;
         StackFactory sFactory = new StackFactory();
         ListaFactory lFactory = new ListaFactory();
         Stack stack;
-        String expresion;
+        String expresion,resultado;
         Lectura postfix = new Lectura();
         expresion = postfix.leer();
         Scanner ingreso  = new Scanner(System.in);
@@ -74,6 +74,13 @@ public class Main {
                     }
                     
                 }
+            }
+            case 3:{
+               stack = sFactory.getClass("arrayList");
+               stack.insertar(expresion, stack);
+               resultado = stack.evaluar(stack);
+                System.out.println("Resultado: " + resultado);
+                break;
             }
         }
         
