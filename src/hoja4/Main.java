@@ -19,9 +19,13 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int op1,op2;
+        int op1,op2,resultado;
         StackFactory sFactory = new StackFactory();
+        ListaFactory lFactory = new ListaFactory();
         Stack stack;
+        String expresion;
+        Lectura postfix = new Lectura();
+        expresion = postfix.leer();
         Scanner ingreso  = new Scanner(System.in);
         System.out.println("Elija su opcion de stack: ");
         System.out.println("1. Vector");
@@ -33,7 +37,43 @@ public class Main {
         switch(op1){
             case 1:{
                stack = sFactory.getClass("vector");
-               stack.insertar(null, stack);
+               stack.insertar(expresion, stack);
+               resultado = stack.evaluar(stack);
+                System.out.println("Resultado: " + resultado);
+                break;
+            }
+            case 2:{
+                stack = sFactory.getClass("Lista");
+                System.out.println("Elija su opcion de lista: ");
+                System.out.println("1. Simple");
+                System.out.println("2. Circular");
+                System.out.println("3. Doble");                
+                System.out.println("Número de opción: ");
+                op2 = ingreso.nextInt();
+                switch(op2){
+                    case 1:{
+                        stack = lFactory.getClass("Simple");
+                        stack.insertar(expresion, stack);
+                        resultado = stack.evaluar(stack);
+                        System.out.println("Resultado: " + resultado);
+                        break;
+                    }
+                    case 2:{
+                        stack = lFactory.getClass("Circular");
+                        stack.insertar(expresion, stack);
+                        resultado = stack.evaluar(stack);
+                        System.out.println("Resultado: " + resultado);
+                        break;
+                    }
+                    case 3:{
+                        stack = lFactory.getClass("Doble");
+                        stack.insertar(expresion, stack);
+                        resultado = stack.evaluar(stack);
+                        System.out.println("Resultado: " + resultado);
+                        break;
+                    }
+                    
+                }
             }
         }
         
